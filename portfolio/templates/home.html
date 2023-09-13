@@ -1,0 +1,53 @@
+{% extends 'layout.html' %}
+{% block content %}
+{% load static %}
+
+<header class="row bg-light" >
+   <div class="col-md-4">
+      <img src="{% static 'portfolio/profile.jpg' %}" alt="" width="300" height="250">
+   </div>
+<div class="col-md-8 my-auto">
+    <h1> Mi nombre es <strong>Jerson Barcia</strong></h1>
+    <h3>Full stack web developer</h3>
+    <p>
+        TEXTO DE PRUEBA-TEXTO DE PRUEBA-TEXTO DE PRUEBA-TEXTO DE PRUEBA-TEXTO DE PRUEBA-TEXTO DE PRUEBA-
+        TEXTO DE PRUEBA-TEXTO DE PRUEBA-TEXTO DE PRUEBA-TEXTO DE PRUEBA-TEXTO DE PRUEBA-TEXTO DE PRUEBA-
+        TEXTO DE PRUEBA-TEXTO DE PRUEBA-TEXTO DE PRUEBA-TEXTO DE PRUEBA-TEXTO DE PRUEBA-
+        TEXTO DE PRUEBA-TEXTO DE PRUEBA-TEXTO DE PRUEBA-TEXTO DE PRUEBA
+    </p>
+    
+    <a class="btn btn-primary btn-lg rounded-0 my-3" href="{% static 'portfolio/curriculum.pdf' %}" target="_black"> 
+        Download CV </a>
+    </div>
+</header>
+
+<div class="row my-4 text-center">
+
+    <h3>My Proyects</h3>
+    <p>Bases de Datos A</p>
+
+{% for proyect in proyects %}
+
+<div class="col md-4 p-4">
+    <div class="card bg-light card-proyect">
+        <img src="{{proyect.image.url}}" alt="{{proyect.title}}"  class="img-fluid" >
+        
+        <div class="card-body">
+
+        <h2>{{proyect.title}}</h2>  <p>{{proyect.descripcion}}</p>
+       
+
+        {% if proyect.url %}
+        <a href="{{proyect.url}}" class="btn btn-light rounded-0 btn-sm" target="_blank">{{proyect.url}}</a>
+
+        {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endfor %}
+{% endblock %}
+</div>
+
+
+
